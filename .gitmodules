@@ -1,0 +1,21 @@
+[submodule "bundle/ctrlp.vim"]
+	path = bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "bundle/delimitmate"]
+	path = bundle/delimitmate
+	url = https://github.com/raimondi/delimitmate
+[submodule "bundle/emmet-vim"]
+	path = bundle/emmet-vim
+	url = https://github.com/mattn/emmet-vim
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = https://github.com/bling/vim-airline
+[submodule "bundle/vim-airline-themes"]
+	path = bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
+	url = https://github.com/tpope/vim-surround
