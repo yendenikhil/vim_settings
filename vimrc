@@ -144,13 +144,6 @@ set foldcolumn=1
 " Enable syntax highlighting
 syntax enable 
 
-try
-    colorscheme desert
-catch
-endtry
-
-set background=dark
-
 " Set extra options when running in GUI mode
 if has("gui_running")
     set guioptions-=T
@@ -428,8 +421,8 @@ endfunction
 "endif
 
 " custom modifications
-let g:solarized_termcolors=256
-colorscheme solarized
+" let g:solarized_termcolors=256
+" colorscheme solarized
 set number
 " CtrlP mods
 let g:ctrlp_map = '<c-p>'
@@ -439,5 +432,5 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " Vim Airline mods
 let g:airline_powerline_fonts = 1
-let g:airline_theme='solarized'
+" let g:airline_theme='solarized'
 let g:airline#extensions#tabline#enabled = 1
