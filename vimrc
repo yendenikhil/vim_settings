@@ -46,8 +46,22 @@
 " Sets how many lines of history VIM has to remember
 set history=500
 
-execute pathogen#infect()
-call pathogen#helptags()
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'L9'
+Plugin 'vim-scripts/FuzzyFinder'
+Plugin 'itchyny/lightline.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'mattn/emmet-vim'
+Plugin 'gorkunov/smartpairs.vim'
+Plugin 'jiangmiao/auto-pairs'
+call vundle#end()
 
 " Enable filetype plugins
 filetype plugin on
@@ -425,12 +439,27 @@ endfunction
 " colorscheme solarized
 set number
 " CtrlP mods
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+" let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_cmd = 'CtrlP'
+" let g:ctrlp_working_path_mode = 'ra'
+" set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " Vim Airline mods
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 " let g:airline_theme='solarized'
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
+
+
+" nerdTREE
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" light_line
+if !has('gui_running')
+    set t_Co=256
+endif
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \}
+
+
