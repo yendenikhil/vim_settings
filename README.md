@@ -1,9 +1,5 @@
-# VIM setup
+# Dot Configuration
 
-This is my VIM setup.
+This repo holds my own configuration files for various programs. 
 
-To install this run following commands.
-```sh
-git clone https://github.com/yendenikhil/vim_settings.git ~/.vim
-sh ~/.vim/install_vimrc.sh
-```
+This is ever evolving repo and you are free to use as you see fit!
