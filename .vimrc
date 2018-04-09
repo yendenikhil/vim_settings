@@ -4,9 +4,9 @@ set backspace=indent,eol,start
 set clipboard=unnamed
 set history=500
 
-set tabstop=4           " 4 space tab
+set tabstop=2           " space tab
 set expandtab           " use spaces for tabs
-set softtabstop=4       " 4 space tab
+set softtabstop=2       " space tab
 set shiftwidth=4
 set modelines=1
 
@@ -36,8 +36,9 @@ nnoremap <leader>w :w!<cr>
 nnoremap <leader>q :q<cr>
 " escaping the inset mode
 inoremap jk <Esc>
-" reindent whole file
-nnoremap <leader>f mzgg=G`
+" reindent whole file (the good way)
+" Thanks to AlexDeLarge for sharing this awesome way to reintend
+nnoremap <leader>f mzgg=G`z
 
 " autocomplete the common things.
 inoremap () ()
