@@ -2,7 +2,8 @@ set nocompatible        " to make sure to use in vim and not in vi
 syntax enable           " enable syntax processing
 set backspace=indent,eol,start
 set clipboard=unnamed
- 
+set history=500
+
 set tabstop=4           " 4 space tab
 set expandtab           " use spaces for tabs
 set softtabstop=4       " 4 space tab
@@ -29,7 +30,14 @@ set foldenable          " don't fold files by default on open
 set foldlevelstart=10   " start with fold level of 1
 
 let mapleader=","
+" saving
 nnoremap <leader>w :w!<cr>
+" quit the file
+nnoremap <leader>q :q<cr>
+" escaping the inset mode
+inoremap jk <Esc>
+" reindent whole file
+nnoremap <leader>f mzgg=G`
 
 " autocomplete the common things.
 inoremap () ()
@@ -37,12 +45,13 @@ inoremap [] []
 inoremap {} {}
 inoremap '' ''
 inoremap "" ""
+inoremap `` ``
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
 inoremap { {}<Esc>i
 inoremap ' ''<Esc>i
 inoremap " ""<Esc>i
-inoremap jk <Esc>
+inoremap ` ``<Esc>i
 
 set noswapfile          " Do not create swap file. Manage this in version control 
 set nobackup            " Do not create backup file again manage in version control
@@ -50,7 +59,7 @@ set undodir=~/temp//    " setup the undodir at central place
 
 " Setting up the numbers to hybrid and when go to insert mode make it absolute
 augroup numbertoggle 
-autocmd! 
-autocmd VimEnter,InsertLeave * set relativenumber 
-autocmd InsertEnter * set norelativenumber 
+    autocmd! 
+    autocmd VimEnter,InsertLeave * set relativenumber 
+    autocmd InsertEnter * set norelativenumber 
 augroup END
