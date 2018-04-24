@@ -18,7 +18,7 @@ set smartindent         " Try to guess indent of next line
 
 set number              " show line numbers
 set showcmd             " show command in bottom bar
-set cursorline        " highlight current line
+" set cursorline        " highlight current line
 set wildmenu
 set lazyredraw
 set showmatch           " higlight matching parenthesis
@@ -29,10 +29,10 @@ set foldnestmax=10      " max 10 depth
 set foldenable          " don't fold files by default on open
 set foldlevelstart=10   " start with fold level of 1
 
-let mapleader=","
+let mapleader=" "
 " saving
 nnoremap <leader>w :w!<cr>
-" quit the file
+"  uit the file
 nnoremap <leader>q :q<cr>
 " escaping the inset mode
 inoremap jk <Esc>
