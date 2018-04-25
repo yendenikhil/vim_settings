@@ -177,10 +177,22 @@ bar {
 # ------------------------------------------
 
 # lock screen (need to work on the way to blur the working thing and then show it as lock screen)
-bindsym $mod+shift+x exec --no-startup-id "scrot ~/lock.png; convert lock.png -blur 10x7 lock.png; i3lock -uei ~/lock.png"
+bindsym $mod+shift+x exec --no-startup-id "scrot ~/lock.png; convert lock.png -blur 20x7 lock.png; i3lock -uei ~/lock.png"
+
+# mode launcher for volume
+set $mode_launcher_vol Change volume with j and k
+bindsym $mod+shift+v mode "$mode_launcher_vol"
+
+mode "$mode_launcher_vol" {
+    bindsym j exec amixer sset Master playback 5%-
+    bindsym k exec amixer sset Master playback 5%+
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
 
 # border to windows
-default_border pixel 2
+default_border pixel 0
 
 # ------------------------------------------
 # setting up workspace locations and preferred workspace for applications
