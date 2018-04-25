@@ -32,13 +32,18 @@ set foldlevelstart=10   " start with fold level of 1
 let mapleader=" "
 " saving
 nnoremap <leader>w :w!<cr>
-"  uit the file
+"  quit the file
 nnoremap <leader>q :q<cr>
 " escaping the inset mode
 inoremap jk <Esc>
 " reindent whole file (the good way)
 " Thanks to AlexDeLarge for sharing this awesome way to reintend
 nnoremap <leader>f mzgg=G`z
+" open file in new tab
+nnoremap <leader>t :tabe<space>
+" tab previous and tab next 
+nnoremap <leader>j :tabn<cr>
+nnoremap <leader>k :tabp<cr>
 
 " autocomplete the common things.
 inoremap () ()

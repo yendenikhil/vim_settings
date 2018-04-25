@@ -168,6 +168,11 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         position top
+# to hide bar and to show when Mod is pressed enable following three line.
+        # mode hide
+        # hidden_state hide
+        # modifier $mod
+
         # for bumblebee get it cloned using git clone git://github.com/tobi-wan-kenobi/bumblebee-status
         status_command ~/repo/bumblebee-status/bumblebee-status -m uptime disk nic amixer datetime -p nic.exclude=enp,lo -t solarized-powerline
 }
