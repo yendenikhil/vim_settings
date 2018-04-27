@@ -73,15 +73,18 @@ nnoremap <leader>j :tabn<cr>
 nnoremap <leader>k :tabp<cr>
 
 " autocomplete the common things.
+inoremap (<cr> (<cr><cr>)<esc>ki<tab>
+inoremap {<cr> {<cr><cr>}<esc>ki<tab>
+inoremap [<cr> [<cr><cr>]<esc>ki<tab>
 inoremap () ()
 inoremap [] []
 inoremap {} {}
 inoremap '' ''
 inoremap "" ""
 inoremap `` ``
-inoremap ( ()<Esc>i
-inoremap [ []<Esc>i
-inoremap { {}<Esc>i
+inoremap ( (  )<Esc>hi
+inoremap [ [  ]<Esc>hi
+inoremap { {  }<Esc>hi
 inoremap ' ''<Esc>i
 inoremap " ""<Esc>i
 inoremap ` ``<Esc>i
