@@ -210,6 +210,18 @@ mode "$mode_launcher_vol" {
     bindsym Return mode "default"
 }
 
+# mode launcher for apps
+set $mode_launcher_app App launcher: [f]irefox, [q]utebrowser
+bindsym $mod+o mode "$mode_launcher_app"
+
+mode "$mode_launcher_app" {
+    bindsym f exec firefox; mode "default"
+    bindsym q exec qutebrowser; mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
 # ------------------------------------------
 # setting up workspace locations and preferred workspace for applications
 # ------------------------------------------

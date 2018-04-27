@@ -1,4 +1,19 @@
 set nocompatible        " to make sure to use in vim and not in vi
+" -------------------------------------------------------------
+"  Setup Vundle plugins (make sure that the git clone has happened for Vundle
+" -------------------------------------------------------------
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'vundleVim/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'ctrlpvim/ctrlp.vim'
+
+call vundle#end()
+" -------------------------------------------------------------
+"  vim customization
+" -------------------------------------------------------------
 syntax enable           " enable syntax processing
 set backspace=indent,eol,start
 set clipboard=unnamed
@@ -7,17 +22,26 @@ set history=500
 set tabstop=2           " space tab
 set expandtab           " use spaces for tabs
 set softtabstop=2       " space tab
-set shiftwidth=4
+set shiftwidth=2
 set modelines=1
 
+filetype on
 filetype indent on
 filetype plugin on
 
 set autoindent          " Set the indent as of previous line
 set smartindent         " Try to guess indent of next line 
 
+set showmatch
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set infercase 
+
 set number              " show line numbers
 set showcmd             " show command in bottom bar
+set scrolloff=5         " number of lines to keep above cursor
 " set cursorline        " highlight current line
 set wildmenu
 set lazyredraw
@@ -30,12 +54,15 @@ set foldenable          " don't fold files by default on open
 set foldlevelstart=10   " start with fold level of 1
 
 let mapleader=" "
+" space space shortcut
+nnoremap <leader><space> :nohl<cr>
 " saving
 nnoremap <leader>w :w!<cr>
 "  quit the file
 nnoremap <leader>q :q<cr>
 " escaping the inset mode
 inoremap jk <Esc>
+inoremap kj <Esc>
 " reindent whole file (the good way)
 " Thanks to AlexDeLarge for sharing this awesome way to reintend
 nnoremap <leader>f mzgg=G`z
@@ -69,3 +96,4 @@ augroup numbertoggle
     autocmd VimEnter,InsertLeave * set relativenumber 
     autocmd InsertEnter * set norelativenumber 
 augroup END
+
