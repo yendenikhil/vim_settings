@@ -1,4 +1,5 @@
-set nocompatible        " to make sure to use in vim and not in vi
+" set nocompatible        " not needed as picking up vimrc file itself makes
+" it non compatible
 " -------------------------------------------------------------
 "  Setup Vundle plugins (make sure that the git clone has happened for Vundle
 " -------------------------------------------------------------
@@ -25,12 +26,10 @@ set softtabstop=2       " space tab
 set shiftwidth=2
 set modelines=1
 
-filetype on
-filetype indent on
-filetype plugin on
+filetype plugin indent on
 
 set autoindent          " Set the indent as of previous line
-set smartindent         " Try to guess indent of next line 
+" set smartindent         " Try to guess indent of next line 
 
 set showmatch
 set incsearch
@@ -73,18 +72,18 @@ nnoremap <leader>j :tabn<cr>
 nnoremap <leader>k :tabp<cr>
 
 " autocomplete the common things.
-inoremap (<cr> (<cr><cr>)<esc>ki<tab>
-inoremap {<cr> {<cr><cr>}<esc>ki<tab>
-inoremap [<cr> [<cr><cr>]<esc>ki<tab>
+inoremap (<cr> (<cr>)<esc>ko
+inoremap {<cr> {<cr>}<esc>ko
+inoremap [<cr> [<cr>]<esc>ko
 inoremap () ()
 inoremap [] []
 inoremap {} {}
 inoremap '' ''
 inoremap "" ""
 inoremap `` ``
-inoremap ( (  )<Esc>hi
-inoremap [ [  ]<Esc>hi
-inoremap { {  }<Esc>hi
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {}<Esc>i
 inoremap ' ''<Esc>i
 inoremap " ""<Esc>i
 inoremap ` ``<Esc>i
