@@ -185,9 +185,8 @@ bar {
 for_window [class="^.*"] border pixel 2
 
 client.focused #00C1FF #00C1FF #000088 #00C1FF
-client.focused_inactive #2C2C2C #2C2C2C #ffffff #2C2C2C
-# client.unfocused #2C2C2C #2C2C2C #ffffff #2C2C2C
-client.unfocused #004C66 #004C66 #ffffff #004C66
+client.focused_inactive #017aa3 #017aa3 #ffffff #017aa3
+client.unfocused #017aa3 #017aa3 #ffffff #017aa3
 client.urgent #00C1FF #00C1FF #000088 #00C1FF
 
 # gaps setup

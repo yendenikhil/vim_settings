@@ -104,6 +104,11 @@ augroup customfiletype
   autocmd!
   autocmd BufNewFile,BufRead *.ejs set filetype=html
 augroup END
+augroup customfiletype 
+  autocmd!
+  " reload vimrc file on save. 
+  autocmd BufWritePost .vimrc source %
+augroup END
 
 
 " -------------------------------------------------------------
