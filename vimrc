@@ -10,6 +10,8 @@ call vundle#begin()
 Plugin 'vundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'mileszs/ack.vim' 
 
 call vundle#end()
 " -------------------------------------------------------------
@@ -17,7 +19,7 @@ call vundle#end()
 " -------------------------------------------------------------
 syntax enable           " enable syntax processing
 set backspace=indent,eol,start
-set clipboard=unnamed
+set clipboard=unnamedplus
 set history=500
 
 set tabstop=2           " space tab
@@ -94,8 +96,19 @@ set undodir=~/temp//    " setup the undodir at central place
 
 " Setting up the numbers to hybrid and when go to insert mode make it absolute
 augroup numbertoggle 
-    autocmd! 
-    autocmd VimEnter,InsertLeave * set relativenumber 
-    autocmd InsertEnter * set norelativenumber 
+  autocmd! 
+  autocmd VimEnter,InsertLeave * set relativenumber 
+  autocmd InsertEnter * set norelativenumber 
 augroup END
+augroup customfiletype 
+  autocmd!
+  autocmd BufNewFile,BufRead *.ejs set filetype=html
+augroup END
+
+
+" -------------------------------------------------------------
+"  CtrlP configuration
+" -------------------------------------------------------------
+" open new file in ctrlP in new tab
+let g:ctrlp_open_new_file = 't'
 

@@ -174,17 +174,21 @@ bar {
         # modifier $mod
 
         # for bumblebee get it cloned using git clone git://github.com/tobi-wan-kenobi/bumblebee-status
-        status_command ~/repo/bumblebee-status/bumblebee-status -m uptime disk nic amixer datetime -p nic.exclude=enp,lo -t solarized-powerline
+        status_command ~/repo/bumblebee-status/bumblebee-status -m uptime disk nic amixer datetime -p nic.exclude=enp,lo,virb -t solarized-powerline
 }
 
 # ------------------------------------------
 # my custom changes for new configuration
 # ------------------------------------------
 
-# border to windows
-# default_border pixel 0
-# border should be none for i3-gaps as per documentation
-for_window [class="^.*"] border pixel 0
+# border to windows (need to use this for i3-gaps)
+for_window [class="^.*"] border pixel 2
+
+client.focused #00C1FF #00C1FF #000088 #00C1FF
+client.focused_inactive #2C2C2C #2C2C2C #ffffff #2C2C2C
+# client.unfocused #2C2C2C #2C2C2C #ffffff #2C2C2C
+client.unfocused #004C66 #004C66 #ffffff #004C66
+client.urgent #00C1FF #00C1FF #000088 #00C1FF
 
 # gaps setup
 smart_gaps on
@@ -222,18 +226,30 @@ mode "$mode_launcher_app" {
     bindsym Return mode "default"
 }
 
+# mode launcher for apps
+set $mode_launcher_utils Action: [s]hutdown, change random [w]allpaper, Escape to leave.
+bindsym $mod+u mode "$mode_launcher_utils"
+
+mode "$mode_launcher_utils" {
+    bindsym s exec shutdown now
+    bindsym w exec feh --bg-scale ~/Pictures/wallpapers/$(ls ~/Pictures/wallpapers |sort -R | head -1)
+
+    bindsym Escape mode "default"
+}
+
 # ------------------------------------------
 # setting up workspace locations and preferred workspace for applications
 # ------------------------------------------
 
 # Assign URxvt to workspace 1
-assign [class="URxvt"] $ws1
+# assign [class="URxvt"] $ws1
 # Assign firefox to workspace 2
-assign [class="Firefox"] $ws2
+# assign [class="Firefox"] $ws2
 
 # ------------------------------------------
 # start-up scripts
 # ------------------------------------------
 
 # setting up the background 
-exec_always feh --bg-scale ~/Pictures/wallpapers/$(ls ~/Pictures/wallpapers |sort -R | head -1)
+# exec_always feh --bg-scale ~/Pictures/wallpapers/$(ls ~/Pictures/wallpapers |sort -R | head -1)
+exec feh --bg-scale ~/Pictures/wallpapers/animegirls-1525079899730-259.jpg
