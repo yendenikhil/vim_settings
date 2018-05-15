@@ -2,8 +2,8 @@
 URxvt.scrollBar: false
 
 ! setup fonts 
-URxvt.font: xft:DejaVuSansMono Nerd Font Mono:style=Book:antialias=true:pixelsize=14,xft:DejaVu Sans Mono:antialias=true:pixelsize=14,xft:FontAwesome:style=Regular:antialias=true:pixelsize=14
-URxvt.boldFont: xft:DejaVuSansMono Nerd Font Mono:style=Bold:antialias=true:pixelsize=14,xft:DejaVu Sans Mono:style=bold:antialias=true:pixelsize=14
+URxvt.font: xft:DejaVu Sans Mono:style=book:antialias=true:pixelsize=14
+URxvt.boldFont: xft:DejaVu Sans Mono:style=bold:antialias=true:pixelsize=14
 URxvt.letterSpace: -1
 
 ! setup the transparancy

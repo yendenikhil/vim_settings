@@ -1,4 +1,4 @@
-" set nocompatible        " not needed as picking up vimrc file itself makes
+"set nocompatible        " not needed as picking up vimrc file itself makes
 " it non compatible
 " -------------------------------------------------------------
 "  Setup Vundle plugins (make sure that the git clone has happened for Vundle
@@ -9,9 +9,10 @@ call vundle#begin()
 
 Plugin 'vundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'mileszs/ack.vim' 
+Plugin 'tpope/vim-fugitive' 
 
 call vundle#end()
 " -------------------------------------------------------------
@@ -32,6 +33,8 @@ filetype plugin indent on
 
 set autoindent          " Set the indent as of previous line
 " set smartindent         " Try to guess indent of next line 
+
+set path+=** " set the path to current directory and all subdirectory. Useful for find. 
 
 set showmatch
 set incsearch
@@ -73,6 +76,11 @@ nnoremap <leader>t :tabe<space>
 nnoremap <leader>j :tabn<cr>
 nnoremap <leader>k :tabp<cr>
 
+" toggle relative and absolute numbering.
+nnoremap <F8> :set relativenumber!<cr>
+" open vimrc to edit
+nnoremap <leader>vc :e ~/.vimrc<cr>
+
 " autocomplete the common things.
 inoremap (<cr> (<cr>)<esc>ko
 inoremap {<cr> {<cr>}<esc>ko
@@ -95,11 +103,11 @@ set nobackup            " Do not create backup file again manage in version cont
 set undodir=~/temp//    " setup the undodir at central place
 
 " Setting up the numbers to hybrid and when go to insert mode make it absolute
-augroup numbertoggle 
-  autocmd! 
-  autocmd VimEnter,InsertLeave * set relativenumber 
-  autocmd InsertEnter * set norelativenumber 
-augroup END
+" augroup numbertoggle 
+"   autocmd! 
+"   autocmd VimEnter,InsertLeave * set relativenumber 
+"   autocmd InsertEnter * set norelativenumber 
+" augroup END
 augroup customfiletype 
   autocmd!
   autocmd BufNewFile,BufRead *.ejs set filetype=html
