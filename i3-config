@@ -182,11 +182,11 @@ bar {
 # ------------------------------------------
 
 # border to windows (need to use this for i3-gaps)
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 5
 
 client.focused #00C1FF #00C1FF #000088 #00C1FF
-client.focused_inactive #017aa3 #017aa3 #ffffff #017aa3
-client.unfocused #017aa3 #017aa3 #ffffff #017aa3
+client.focused_inactive #666666 #666666 #ffffff #666666
+client.unfocused #666666 #666666 #ffffff #666666
 client.urgent #00C1FF #00C1FF #000088 #00C1FF
 
 # gaps setup
