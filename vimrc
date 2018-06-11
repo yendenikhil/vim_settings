@@ -8,7 +8,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'vundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
+ Plugin 'Valloric/YouCompleteMe'
 " Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'mileszs/ack.vim' 
@@ -20,6 +20,7 @@ call vundle#end()
 " -------------------------------------------------------------
 syntax enable           " enable syntax processing
 set backspace=indent,eol,start
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:.
 set clipboard=unnamedplus
 set history=500
 
@@ -50,7 +51,7 @@ set scrolloff=5         " number of lines to keep above cursor
 set wildmenu
 set lazyredraw
 set showmatch           " higlight matching parenthesis
-set fillchars+=vert:┃
+" set fillchars+=vert:┃
 
 set foldmethod=indent   " fold based on indent level
 set foldnestmax=10      " max 10 depth
@@ -59,7 +60,7 @@ set foldlevelstart=10   " start with fold level of 1
 
 let mapleader=" "
 " space space shortcut
-nnoremap <leader><space> :nohl<cr>
+nnoremap <leader><space> :nohl<cr>:pc<cr>
 " saving
 nnoremap <leader>w :w!<cr>
 "  quit the file
@@ -78,6 +79,28 @@ nnoremap <leader>k :tabp<cr>
 
 " toggle relative and absolute numbering.
 nnoremap <F8> :set relativenumber!<cr>
+" toggle whitespace chars
+nnoremap <F7> :set list!<cr>
+" open vimrc to edit
+nnoremap <leader>vc :e ~/.vimrc<cr>
+
+" autocomplete the common things.
+inoremap (<cr> (<cr>)<esc>ko
+inoremap {<cr> {<cr>}<esc>ko
+inoremap [<cr> [<cr>]<esc>ko
+inoremap () ()
+inoremap [] []
+inoremap {} {}
+inoremap '' ''
+inoremap "" ""
+inoremap `` ``
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {}<Esc>i
+inoremap ' ''<Esc>i
+inoremap " ""<Esc>i
+inoremap ` ``<Esc>i
+
 " open vimrc to edit
 nnoremap <leader>vc :e ~/.vimrc<cr>
 
