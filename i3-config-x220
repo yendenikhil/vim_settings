@@ -232,7 +232,7 @@ bindsym $mod+u mode "$mode_launcher_utils"
 
 mode "$mode_launcher_utils" {
     bindsym s exec shutdown now
-    bindsym w exec feh --bg-scale ~/Pictures/wallpapers/$(ls ~/Pictures/wallpapers |sort -R | head -1)
+    bindsym w exec feh --bg-scale ~/pics/wallpapers/$(ls ~/pics/wallpapers |sort -R | head -1)
 
     bindsym Escape mode "default"
 }
