@@ -1,27 +1,17 @@
-"set nocompatible        " not needed as picking up vimrc file itself makes
-" it non compatible
-" -------------------------------------------------------------
-"  Setup Vundle plugins (make sure that the git clone has happened for Vundle
-" -------------------------------------------------------------
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'vundleVim/Vundle.vim'
- Plugin 'Valloric/YouCompleteMe'
-" Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'mileszs/ack.vim' 
-Plugin 'tpope/vim-fugitive' 
-
-call vundle#end()
 " -------------------------------------------------------------
 "  vim customization
 " -------------------------------------------------------------
+
+" files to ignore
+" python
+set wildignore+=*.pyc,*.pyo,*/__pycache__/*
+" temp
+set wildignore+=*.swp,~*
+
 syntax enable           " enable syntax processing
 set backspace=indent,eol,start
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:.
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 set history=500
 
 set tabstop=2           " space tab
@@ -44,19 +34,26 @@ set ignorecase
 set smartcase
 set infercase 
 
-set number              " show line numbers
-set showcmd             " show command in bottom bar
 set scrolloff=5         " number of lines to keep above cursor
 " set cursorline        " highlight current line
 set wildmenu
 set lazyredraw
 set showmatch           " higlight matching parenthesis
 " set fillchars+=vert:┃
+set ttyfast     " to make the fast tty connection and redraws
+set title       " show title
+set number      " show line numbers
+set hidden
 
 set foldmethod=indent   " fold based on indent level
 set foldnestmax=10      " max 10 depth
 set foldenable          " don't fold files by default on open
 set foldlevelstart=10   " start with fold level of 1
+
+set noswapfile          " Do not create swap file. Manage this in version control 
+set nobackup            " Do not create backup file again manage in version control
+set undodir=~/temp//    " setup the undodir at central place
+set undolevels=1000
 
 let mapleader=" "
 " space space shortcut
@@ -121,11 +118,6 @@ inoremap ' ''<Esc>i
 inoremap " ""<Esc>i
 inoremap ` ``<Esc>i
 
-set noswapfile          " Do not create swap file. Manage this in version control 
-set nobackup            " Do not create backup file again manage in version control
-set undodir=~/temp//    " setup the undodir at central place
-
-" Setting up the numbers to hybrid and when go to insert mode make it absolute
 " augroup numbertoggle 
 "   autocmd! 
 "   autocmd VimEnter,InsertLeave * set relativenumber 
@@ -140,11 +132,4 @@ augroup customfiletype
   " reload vimrc file on save. 
   autocmd BufWritePost .vimrc source %
 augroup END
-
-
-" -------------------------------------------------------------
-"  CtrlP configuration
-" -------------------------------------------------------------
-" open new file in ctrlP in new tab
-let g:ctrlp_open_new_file = 't'
 
