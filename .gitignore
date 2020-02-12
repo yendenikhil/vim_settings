@@ -1,0 +1,2 @@
+# the bundles should be downloaded by Vundle and not checked in.
+/bundle/

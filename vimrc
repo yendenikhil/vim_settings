@@ -1,66 +1,85 @@
-set nocompatible        " to make sure to use in vim and not in vi
-syntax enable           " enable syntax processing
-set backspace=indent,eol,start
-set clipboard=unnamed
-set history=500
+" =============================================
+" customization
+" =============================================
+syntax enable
 
-set tabstop=2           " space tab
-set expandtab           " use spaces for tabs
-set softtabstop=2       " space tab
-set shiftwidth=4
-set modelines=1
+set ruler       " to see the cursor position
+set ttyfast     " fast terminal connection 
+set title 
+set number 
+set hidden
+set path=$PWD/**
 
-filetype indent on
+" no backups
+set nobackup
+set nowritebackup
+set noswapfile
+set undodir=~/temp//
+" keep histories for undo
+set undolevels=1000
+
+set hlsearch
+set ignorecase
+set smartcase
+set incsearch
+
 filetype plugin on
+filetype indent  on
 
-set autoindent          " Set the indent as of previous line
-set smartindent         " Try to guess indent of next line 
+set secure " so that we do not run what we do not own. Though I still do not completely comprehend the implications of this.
 
-set number              " show line numbers
-set showcmd             " show command in bottom bar
-" set cursorline        " highlight current line
-set wildmenu
-set lazyredraw
-set showmatch           " higlight matching parenthesis
-set fillchars+=vert:┃
+" tabs set expandtab set tabstop=4
+set shiftwidth=2 
+set tabstop=2
+set expandtab
+set softtabstop=2
+set autoindent
+set smartindent
 
-set foldmethod=indent   " fold based on indent level
-set foldnestmax=10      " max 10 depth
-set foldenable          " don't fold files by default on open
-set foldlevelstart=10   " start with fold level of 1
+" show hidden chars, and other whitespaces
+set list
+set listchars=tab:→\ ,trail:·,nbsp:·
+
+" =============================================
+" Plugin installation
+" =============================================
+let doIHaveVundle=1
+let v_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(v_readme)
+  echo "Installing Vundle..."
+  echo "" 
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+  let doIHaveVundle=0
+endif
+set runtimepath+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Plugin 'VundleVim/Vundle.vim' 
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary' 
+Plugin 'tpope/vim-sensible'
+Plugin 'mattn/emmet-vim'
+" find more plugins
+
+if doIHaveVundle == 0
+  echo "Installing bundles..." 
+  echo ""
+  :BundleInstall
+endif
+
+" =============================================
+" keybinding
+" =============================================
+" remap escape 
+inoremap jk <Esc>
 
 let mapleader=" "
-" saving
+
+nnoremap <leader><leader> :nohl<cr>:ls<cr>
 nnoremap <leader>w :w!<cr>
-"  uit the file
 nnoremap <leader>q :q<cr>
-" escaping the inset mode
-inoremap jk <Esc>
-" reindent whole file (the good way)
-" Thanks to AlexDeLarge for sharing this awesome way to reintend
-nnoremap <leader>f mzgg=G`z
+" to format the file.
+nnoremap <leader>f mzgg=G'z  
 
-" autocomplete the common things.
-inoremap () ()
-inoremap [] []
-inoremap {} {}
-inoremap '' ''
-inoremap "" ""
-inoremap `` ``
-inoremap ( ()<Esc>i
-inoremap [ []<Esc>i
-inoremap { {}<Esc>i
-inoremap ' ''<Esc>i
-inoremap " ""<Esc>i
-inoremap ` ``<Esc>i
-
-set noswapfile          " Do not create swap file. Manage this in version control 
-set nobackup            " Do not create backup file again manage in version control
-set undodir=~/temp//    " setup the undodir at central place
-
-" Setting up the numbers to hybrid and when go to insert mode make it absolute
-augroup numbertoggle 
-    autocmd! 
-    autocmd VimEnter,InsertLeave * set relativenumber 
-    autocmd InsertEnter * set norelativenumber 
-augroup END
